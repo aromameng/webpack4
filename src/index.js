@@ -1,15 +1,14 @@
-const image = require('./assets/1.jpg');
-// import './assets/index.scss'
+import Router from './hash.js'
 import './assets/index.css'
+import home from './home.js'
+import test from './test.js'
 
 let app = document.getElementById('app')
 
-let div = document.createElement('div')
-div.setAttribute('id','img')
-let text = document.createTextNode('click me')
-div.appendChild(text)
+Router.route('/',function(){
+    app.appendChild(home)
+})
 
-document.body.appendChild(div);
-let img = document.createElement('img')
-img.setAttribute('src',image)
-div.appendChild(img)
+Router.route('/test', function() {
+    app.innerHTML = test
+});
